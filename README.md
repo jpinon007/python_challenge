@@ -78,7 +78,7 @@ To print the results in the terminal, the following function was used
             list_of_candidates.append(candidates)
     total_candidates = len(list_of_candidates)" was used to do so.
 
-- Percentage of votes candidate received : To calculate the total number of ballots and the percentage of which each runner received, I used the code
+- Ballot total and percentage of votes candidate gained : To calculate the total number of ballots and the percentage of which each runner received, I used the code
    "total_votes = list()
     percentage_votes_won = list()
     for v in range (0,total_candidates):
@@ -86,4 +86,32 @@ To print the results in the terminal, the following function was used
         total_votes.append(ballots.count(name))
         vote_percentage = total_votes[v]/row_count
         percentage_votes_won.append(vote_percentage)"
--
+
+- Winner by most votes : To determine the winner, I calculated the most votes recieved by a candidate using the code
+  "winner = total_votes.index(max(total_votes))"    
+
+- Return results in terminal :
+  " print("Election Results")
+    print("----------------------------")
+    print(f"Total Votes: {row_count:,}")
+    print("----------------------------")
+    for k in range (0,total_candidates): 
+        print(f"{list_of_candidates[k]}: {percentage_votes_won[k]:.3%} ({total_votes[k]:,})")
+    print("----------------------------")
+    print(f"Winner: {list_of_candidates[winner]}")
+    print("----------------------------") "
+
+  -Create a variable for results text file : 
+ results_txt = r"C:\Users\jasmi\OneDrive\Documents\python-challenge\PyPoll\analysis\results.txt"
+
+-Print data analysis in results text file :
+"print("Election Results", file=open(results_txt,"a"))
+    print("----------------------------", file=open(results_txt,"a"))
+    print(f"Total Votes: {row_count:,}", file=open(results_txt,"a"))
+    print("----------------------------", file=open(results_txt,"a"))
+    for t in range (0,total_candidates): 
+        print(f"{list_of_candidates[t]}: {percentage_votes_won[t]:.3%} ({total_votes[t]:,})", file=open(results_txt,"a"))
+    print("----------------------------", file=open(results_txt,"a"))
+    print(f"Winner: {list_of_candidates[winner]}", file=open(results_txt,"a"))
+    print("----------------------------", file=open(results_txt,"a"))"
+    
